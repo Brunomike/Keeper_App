@@ -1,20 +1,19 @@
 import React from "react";
-
-
-let notesArray=[{title:"This is the note title",content:"This is the note content"}]
+import DeleteIcon from '@material-ui/icons/Delete'
 
 function Note(props){
+
     return(
-        <>
-                    <div className={"note"}>
-                        <h1>{props.title}</h1>
-                        <p>{props.content}</p>
-                    </div>
-
-
-        </>
+            <div className="note">
+                <h1>{props.title}</h1>
+                <p>{props.content}</p>
+                <button
+                    onClick={(e)=>{
+                        e.preventDefault();
+                        props.onDelete(props.id);
+                    }}
+                ><DeleteIcon/></button>
+            </div>
     );
 }
-//console.log(notesArray);
 export default Note;
-export {notesArray};
